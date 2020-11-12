@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Course } from './course';
+import { Course } from '../dto/course.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class CourseService {
     if (course.id) {
       return this._httpClient.put<Course>(`${this.courseUrl}/${course.id}`, course);
     } else {
-      return this._httpClient.put<Course>(`${this.courseUrl}`, course);
+      return this._httpClient.post<Course>(`${this.courseUrl}`, course);
     }
   }
 

@@ -8,4 +8,8 @@ export class Course {
   rating: number;
   releaseDate: string;
   description: string;
+
+  constructor(value?: Course) {
+    if (value) { Object.assign(this, value); }
+  }
 }

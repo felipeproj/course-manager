@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { StarModule } from '../shared/component/star/star.module';
-import { CourseInfoComponent } from './course-info.component';
-import { CourseListComponent } from './course-list.component';
+import { CourseInfoComponent } from './pages/course-info/course-info.component';
+import { CourseListComponent } from './pages/course-list/course-list.component';
 import { AppPipeModule } from '../shared/pipe/app-pipe.module';
 
 @NgModule({
@@ -26,6 +26,10 @@ import { AppPipeModule } from '../shared/pipe/app-pipe.module';
       },
       {
         path: 'courses/info/:id',
+        component: CourseInfoComponent
+      },
+      {
+        path: 'courses/info',
         component: CourseInfoComponent
       },
     ])

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Course } from './course';
-import { CourseService } from './course.service';
+import { Course } from '../../dto/course.dto';
+import { CourseService } from '../../services/course.service';
 
 @Component({
   selector: 'app-course-list',
@@ -30,6 +30,7 @@ export class CourseListComponent implements OnInit {
   retrieveAll(): void {
     this.courseService.retrieveAll().subscribe({
       next: courses => {
+        console.log('courses', courses);
         this.courses = courses;
         this.filteredCourses = this.courses;
       },

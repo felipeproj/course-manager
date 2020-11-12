@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const dateFormat = require('dateformat');
 const cors = require('cors');
 const app = express();
 
@@ -26,8 +27,8 @@ app.route('/api/courses').post((request, response) => {
 
   const firstId = COURSES ? Math.max.apply(null, COURSES.map(courseIterator => courseIterator.id)) + 1 : 1;
   course.id = firstId;
+  course.releaseDate = dateFormat(new Date(), "mmmm d, yyyy");
   COURSES.push(course);
-  
 
   response.status(201).send(course);
 });
